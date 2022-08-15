@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 // Styles
 import './App.css';
@@ -7,22 +7,40 @@ import './App.css';
 import Header from "./Components/Header";
 import Note from "./Components/Note";
 import Footer from "./Components/Footer";
-
-// Mock Data
-import mockData from "./mockData";
+import CreateNote from "./Components/CreateNote";
 
 
 function App() {
+  const [notes, setNotes] = useState([]);
+
+  const noteAdd = (newNote) => {
+    setNotes(prevNotes => {
+      return [...prevNotes, newNote]
+    });
+  };
+
+  const noteDelete = (id) => {
+    setNotes(prevNotes => {
+      return prevNotes.filter((noteList, i) => {
+        return i !== id;
+      })
+    })
+  }
   return (
-    <div className="App">
+    <div>
       <Header />
-      {mockData.map(note => (
-        <Note 
-          key={note.key}
-          title={note.title}
-          content={note.content}
-        />
-      ))}
+      <CreateNote addNote={noteAdd} />
+      {notes.map((noteList, i) => {
+        return(
+          <Note 
+            key={i}
+            id={i}
+            title={noteList.title}
+            content={noteList.content}
+            deleteNote={noteDelete}
+          />
+        )
+      })}
       {/* <Note /> */}
       <Footer />
     </div>
