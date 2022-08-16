@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import EditIcon from '@mui/icons-material/Edit';
+import SystemUpdateAltIcon from '@mui/icons-material/SystemUpdateAlt';
 
 const Note = (props) => {
   const [displayForm, setForm] = useState(false);
@@ -29,11 +30,13 @@ const Note = (props) => {
       <form 
         onSubmit={handleEdit}
         className={`${displayForm ? 'show' : 'hide'}`}
-        style={{ position: 'fixed', bottom: '53%', height: '28%', right: '32.5%', zIndex: '1' }}
+        style={{ position: 'fixed', bottom: '30%', height: '28%', right: '32.5%', zIndex: '1' }}
       >
         <input placeholder='Update title here..' onChange={onChangeValue} value={note.title} />
         <input placeholder='Update content here..' onChange={onChangeValue} value={note.content} />
-        <button style={{ position: 'relative', top: '31%', color: 'white', width: '15%', backgroundColor: '#820000', borderRadius: '10%', right: '37%' }}>Update</button>
+        <button style={{ position: 'relative', top: '31%', color: 'white', width: '15%', backgroundColor: '#820000', borderRadius: '10%', right: '37%' }}>
+          <SystemUpdateAltIcon />
+        </button>
       </form>
       <button onClick={handleDelete}>
         <DeleteForeverIcon />

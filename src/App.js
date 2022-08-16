@@ -11,8 +11,9 @@ import CreateNote from "./Components/CreateNote";
 
 
 function App() {
-  const notesVal = JSON.parse(localStorage.getItem('notes')) !== [];
-  const [notes, setNotes] = useState(!notesVal ? [] : JSON.parse(localStorage.getItem('notes')));
+  const storedNotes = JSON.parse(localStorage.getItem("notes")) || [];
+  const [notes, setNotes] = useState(storedNotes);
+
 
   const noteAdd = (newNote) => {
     setNotes(prevNotes => {

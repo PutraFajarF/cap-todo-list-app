@@ -1,13 +1,12 @@
 import React from 'react';
-import TipsAndUpdatesIcon from '@mui/icons-material/TipsAndUpdates';
+import TouchAppIcon from '@mui/icons-material/TouchApp';
 
 const Header = () => {
   return (
     <header>
       <h1>
-        <TipsAndUpdatesIcon fontSize='large' />
+        <TouchAppIcon fontSize='large' />
         Cap ToDoList App
-        <TipsAndUpdatesIcon fontSize='large' />
       </h1>
     </header>
   );
