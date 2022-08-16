@@ -22,16 +22,20 @@ const CreateNote = (props) => {
   }
 
   const handleSubmit = (e) => {
-    const id = Math.floor(Math.random() * 100);
-    const notes = {
-      ...note,
-      id
-    };
-    props.addNote(notes);
-    setNote({
-      title: '',
-      content: ''
-    });
+    if (!note.title || !note.content) {
+      alert('Please fill the form!')
+    } else {
+      const id = Math.floor(Math.random() * 100);
+      const notes = {
+        ...note,
+        id
+      };
+      props.addNote(notes);
+      setNote({
+        title: '',
+        content: ''
+      });
+    }
     e.preventDefault();
   }
 
