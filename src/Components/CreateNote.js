@@ -22,7 +22,12 @@ const CreateNote = (props) => {
   }
 
   const handleSubmit = (e) => {
-    props.addNote(note);
+    const id = Math.floor(Math.random() * 100);
+    const notes = {
+      ...note,
+      id
+    };
+    props.addNote(notes);
     setNote({
       title: '',
       content: ''

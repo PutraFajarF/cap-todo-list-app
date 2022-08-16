@@ -26,6 +26,15 @@ function App() {
       })
     })
   }
+
+  const noteEdit = (id, title, content) => {
+    console.log(id);
+    const noteUpdated = notes.find(note => note.id === id);
+    noteUpdated.id = id;
+    noteUpdated.title = title;
+    noteUpdated.content = content;
+    setNotes([...notes])
+  }
   return (
     <div>
       <Header />
@@ -33,15 +42,16 @@ function App() {
       {notes.map((noteList, i) => {
         return(
           <Note 
-            key={i}
-            id={i}
+            key={noteList.id}
+            num={i}
+            id={noteList.id}
             title={noteList.title}
             content={noteList.content}
             deleteNote={noteDelete}
+            editNote={noteEdit}
           />
         )
       })}
-      {/* <Note /> */}
       <Footer />
     </div>
   );
