@@ -11,7 +11,8 @@ import CreateNote from "./Components/CreateNote";
 
 
 function App() {
-  const [notes, setNotes] = useState([]);
+  const notesVal = JSON.parse(localStorage.getItem('notes')) !== [];
+  const [notes, setNotes] = useState(!notesVal ? [] : JSON.parse(localStorage.getItem('notes')));
 
   const noteAdd = (newNote) => {
     setNotes(prevNotes => {
@@ -35,6 +36,8 @@ function App() {
     noteUpdated.content = content;
     setNotes([...notes])
   }
+
+  localStorage.setItem('notes', JSON.stringify(notes));
   return (
     <div>
       <Header />
