@@ -26,6 +26,15 @@ header h1 {
   color: #fff;
   font-family: "McLaren", cursive;
   font-weight: 200;
+  cursor: pointer;
+}
+header h1:hover {
+  transform: rotateY(20deg) scale(1.1);
+  transition: .2s ease-in-out;
+}
+
+header h1:active {
+  transform: translate(3px, 6%);
 }
 
 .note {
@@ -63,6 +72,15 @@ header h1 {
   outline: none;
 }
 
+.note button:hover {
+  transform: scale(1.1);
+  transition: .2s ease-in-out;
+}
+
+.note button:active {
+  transform: translate(3px, 6%);
+}
+
 .show {
   display: block;
 }
@@ -79,6 +97,10 @@ form.create-note {
   padding: 15px;
   border-radius: 7px;
   box-shadow: 0 1px 5px rgb(138, 137, 137);
+}
+
+form.create-note:hover {
+  transform: rotate(1deg);
 }
 
 form.create-note input,
